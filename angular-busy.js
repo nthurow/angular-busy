@@ -158,14 +158,12 @@ angular.module('cgBusy').directive('cgBusy',['$compile','$templateCache','cgBusy
 
 					templateScope.$message = options.message;
 
-					if (!angular.equals(tracker.promises,options.promise)) {
-						tracker.reset({
-							promises:options.promise,
-							delay:options.delay,
-							minDuration: options.minDuration
-						});
-					}
-
+					tracker.reset({
+						promises:options.promise,
+						delay:options.delay,
+						minDuration: options.minDuration
+					});
+					
 					templateScope.$cgBusyIsActive = function() {
 						return tracker.active();
 					};
